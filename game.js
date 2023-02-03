@@ -35,7 +35,7 @@ function sleep(ms) {
 }
 
 function preload(){
-    this.load.image('monkey', './img/monkey2.png');
+    this.load.image('monkey', './img/p.png');
     this.load.image('background', './img/jungle.jpg');
    // this.load.audio('music', 'assets/Üllar Jörberg - Suur Ahv.mp3')
 }
@@ -43,7 +43,7 @@ function preload(){
 function create(){
     backgroundImage = this.add.image(400,300, 'background');
    backgroundImage.setDisplaySize(3000,1800);
-    monkey = this.physics.add.sprite(50, 50, 'monkey');
+    monkey = this.physics.add.sprite(200, 300, 'monkey');
     keyInputs = this.input.keyboard.createCursorKeys();
     /*this.music = this.sound.add('music');
     this.music.play(musicConfig);*/
