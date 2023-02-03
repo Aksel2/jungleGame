@@ -15,17 +15,31 @@ var config = {
     }
 };
 
+var musicConfig = {
+    mute: false,
+    volume: 1,
+    rate: 1,
+    detune: 0,
+    seek: 0,
+    loop: true,
+    delay: 0,
+}
+
 var monkey;
 var keyInputs;
 var game = new Phaser.Game(config);
+var music;
 
 function preload(){
-    this.load.image('monkey', 'img/monkey.png');
+    this.load.image('monkey', './img/monkey.png');
+    this.load.audio('music', 'assets/Üllar Jörberg - Suur Ahv.mp3')
 }
 
 function create(){
     monkey = this.physics.add.sprite(50, 50, 'monkey');
     keyInputs = this.input.keyboard.createCursorKeys();
+    this.music = this.sound.add('music');
+    this.music.play(musicConfig);
 }
 
 function update(){
