@@ -30,6 +30,10 @@ var keyInputs;
 var game = new Phaser.Game(config);
 var music;
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function preload(){
     this.load.image('monkey', './img/monkey.png');
     this.load.audio('music', 'assets/Üllar Jörberg - Suur Ahv.mp3')
@@ -54,5 +58,10 @@ function update(){
     }
     if(keyInputs.down.isDown){
         monkey.y = monkey.y + 10;
+    }
+    if (keyInputs.space.isDown) {
+        monkey.y = monkey.y - 150;
+        sleep(100).then(() => monkey.y = monkey.y + 150)
+
     }
 }
