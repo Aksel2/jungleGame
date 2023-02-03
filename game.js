@@ -30,6 +30,10 @@ var game = new Phaser.Game(config);
 var music;
 var backgroundImage;
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function preload(){
     this.load.image('monkey', './img/monkey2.png');
     this.load.image('background', './img/jungle.jpg');
@@ -57,5 +61,10 @@ function update(){
     }
     if(keyInputs.down.isDown){
         monkey.y = monkey.y + 10;
+    }
+    if (keyInputs.space.isDown) {
+        monkey.y = monkey.y - 150;
+        sleep(100).then(() => monkey.y = monkey.y + 150)
+
     }
 }
