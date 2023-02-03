@@ -2,7 +2,6 @@
 
 var config = {
     type: Phaser.AUTO,
-    backgroundColor: 0xCCFFFF ,
     width: '100vh',
     height: '100vh',
     physics: {
@@ -29,17 +28,21 @@ var monkey;
 var keyInputs;
 var game = new Phaser.Game(config);
 var music;
+var backgroundImage;
 
 function preload(){
-    this.load.image('monkey', './img/monkey.png');
-    this.load.audio('music', 'assets/Üllar Jörberg - Suur Ahv.mp3')
+    this.load.image('monkey', './img/monkey2.png');
+    this.load.image('background', './img/jungle.jpg');
+   // this.load.audio('music', 'assets/Üllar Jörberg - Suur Ahv.mp3')
 }
 
 function create(){
+    backgroundImage = this.add.image(400,300, 'background');
+   backgroundImage.setDisplaySize(3000,1800);
     monkey = this.physics.add.sprite(50, 50, 'monkey');
     keyInputs = this.input.keyboard.createCursorKeys();
-    this.music = this.sound.add('music');
-    this.music.play(musicConfig);
+    /*this.music = this.sound.add('music');
+    this.music.play(musicConfig);*/
 }
 
 function update(){
